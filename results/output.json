@@ -1,0 +1,65 @@
+{
+  "scc_components": [
+    [
+      "T9"
+    ],
+    [
+      "T8"
+    ],
+    [
+      "T7"
+    ],
+    [
+      "T6"
+    ],
+    [
+      "T5"
+    ],
+    [
+      "T4"
+    ],
+    [
+      "T3"
+    ],
+    [
+      "T2"
+    ],
+    [
+      "T1"
+    ],
+    [
+      "T0"
+    ]
+  ],
+  "scc_operations": 110,
+  "topological_order": [
+    "T0",
+    "T1",
+    "T2",
+    "T3",
+    "T4",
+    "T5",
+    "T6",
+    "T7",
+    "T8",
+    "T9"
+  ],
+  "critical_path_operations": 161,
+  "critical_path_length": 26,
+  "critical_path_execution_time_ms": 3.0561,
+  "critical_path": [
+    "T0",
+    "T1",
+    "T2",
+    "T3",
+    "T4",
+    "T5",
+    "T6",
+    "T7",
+    "T8",
+    "T9"
+  ],
+  "scc_execution_time_ms": 1.0607,
+  "topo_execution_time_ms": 1.159,
+  "topo_operations": 102
+}
