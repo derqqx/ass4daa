@@ -1,0 +1,88 @@
+{
+  "nodes": [
+    {
+      "id": "T0",
+      "duration": 6
+    },
+    {
+      "id": "T1",
+      "duration": 7
+    },
+    {
+      "id": "T2",
+      "duration": 5
+    },
+    {
+      "id": "T3",
+      "duration": 3
+    },
+    {
+      "id": "T4",
+      "duration": 10
+    },
+    {
+      "id": "T5",
+      "duration": 2
+    },
+    {
+      "id": "T6",
+      "duration": 6
+    },
+    {
+      "id": "T7",
+      "duration": 5
+    }
+  ],
+  "edges": [
+    {
+      "from": "T0",
+      "to": "T1",
+      "weight": 1
+    },
+    {
+      "from": "T1",
+      "to": "T2",
+      "weight": 5
+    },
+    {
+      "from": "T2",
+      "to": "T3",
+      "weight": 5
+    },
+    {
+      "from": "T3",
+      "to": "T4",
+      "weight": 3
+    },
+    {
+      "from": "T4",
+      "to": "T5",
+      "weight": 4
+    },
+    {
+      "from": "T5",
+      "to": "T6",
+      "weight": 2
+    },
+    {
+      "from": "T6",
+      "to": "T7",
+      "weight": 1
+    },
+    {
+      "from": "T7",
+      "to": "T0",
+      "weight": 2
+    },
+    {
+      "from": "T0",
+      "to": "T2",
+      "weight": 3
+    },
+    {
+      "from": "T2",
+      "to": "T0",
+      "weight": 4
+    }
+  ]
+}

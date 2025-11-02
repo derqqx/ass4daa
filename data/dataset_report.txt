@@ -1,0 +1,22 @@
+Dataset Report
+==============
+
+Guaranteed SCC structures:
+
+SMALL (6-10 nodes):
+1. dataset_1_small_sparse_cyclic.json - Single cyclic component
+2. dataset_2_small_pure_dag.json - Pure DAG (no cycles)
+3. dataset_3_small_dense_mixed.json - 2 components with cycles
+
+MEDIUM (10-20 nodes):
+4. dataset_4_medium_multiple_sccs.json - 3 separate SCCs ✅
+5. dataset_5_medium_sparse_dag.json - Sparse DAG
+6. dataset_6_medium_dense_cyclic.json - Dense cyclic graph
+
+LARGE (20-50 nodes):
+7. dataset_7_large_sparse_mixed.json - 3-5 components ✅
+8. dataset_8_large_dense_cyclic.json - Large cyclic graph
+9. dataset_9_large_multiple_sccs_dense.json - Multiple SCCs dense ✅
+
+Test file:
+- tasks.json - Simple test with 3 SCCs for Main class
