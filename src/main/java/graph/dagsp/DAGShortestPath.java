@@ -1,4 +1,3 @@
-// src/main/java/graph/dagsp/DAGShortestPath.java
 package graph.dagsp;
 
 import graph.core.*;
@@ -6,7 +5,6 @@ import graph.topo.TopologicalSort;
 import java.util.*;
 
 public class DAGShortestPath extends BaseMetrics {
-
     public ShortestPathResult findShortestPath(Graph dag, String source) {
         reset();
 
@@ -17,14 +15,12 @@ public class DAGShortestPath extends BaseMetrics {
         Map<String, Integer> dist = new HashMap<>();
         Map<String, String> prev = new HashMap<>();
 
-        // Initialize distances
         for (String node : dag.getNodes()) {
             dist.put(node, Integer.MAX_VALUE);
             incrementOperations(1);
         }
         dist.put(source, 0);
 
-        // Process nodes in topological order
         for (String node : topoResult.order) {
             incrementOperations(1);
 

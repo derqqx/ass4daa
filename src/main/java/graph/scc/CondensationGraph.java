@@ -11,11 +11,9 @@ public class CondensationGraph extends Graph {
     public CondensationGraph(List<List<String>> components, Graph originalGraph) {
         this.components = components;
 
-        // Map each node to its component and create component nodes
         for (int i = 0; i < components.size(); i++) {
             List<String> component = components.get(i);
 
-            // Use the first node of component as representative name
             String componentNodeName = component.get(0);
             componentToNode.put(i, componentNodeName);
 
@@ -23,14 +21,12 @@ public class CondensationGraph extends Graph {
                 nodeToComponent.put(node, i);
             }
 
-            // Calculate max duration in component
             int maxDuration = component.stream()
                     .mapToInt(originalGraph::getNodeDuration)
                     .max().orElse(0);
             addNode(componentNodeName, maxDuration);
         }
 
-        // Create condensation graph edges (between component representatives)
         Set<String> addedEdges = new HashSet<>();
         for (Graph.Edge edge : originalGraph.getEdges()) {
             int fromComp = nodeToComponent.get(edge.from);
@@ -52,11 +48,9 @@ public class CondensationGraph extends Graph {
     public List<List<String>> getComponents() {
         return components;
     }
-
     public int getComponentIndex(String node) {
         return nodeToComponent.get(node);
     }
-
     public String getComponentNodeName(int componentIndex) {
         return componentToNode.get(componentIndex);
     }

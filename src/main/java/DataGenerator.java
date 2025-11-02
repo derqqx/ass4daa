@@ -1,11 +1,9 @@
-// src/main/java/DataGenerator.java
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import java.io.*;
 import java.util.*;
 
 public class DataGenerator {
-
     static class JsonGraphData {
         List<JsonNode> nodes = new ArrayList<>();
         List<JsonEdge> edges = new ArrayList<>();
@@ -25,20 +23,19 @@ public class DataGenerator {
     }
 
     public static void main(String[] args) throws IOException {
-        // Create data directory
         File dataDir = new File("data");
         boolean created = dataDir.mkdirs();
         if (created) {
-            System.out.println("✅ Created /data/ directory");
+            System.out.println("Created /data/ directory");
         } else if (dataDir.exists()) {
-            System.out.println("📁 /data/ directory already exists");
+            System.out.println("/data/ directory already exists");
         } else {
-            System.err.println("❌ Failed to create /data/ directory");
+            System.err.println("Failed to create /data/ directory");
             return;
         }
 
         // Generate 9 datasets + tasks.json for Main
-        System.out.println("🔨 Generating datasets in /data/ folder...");
+        System.out.println("Generating datasets in /data/ folder...");
 
         // SMALL graphs (6-10 nodes)
         generateSmallDataset(1, "sparse_cyclic", true, false);
@@ -59,7 +56,7 @@ public class DataGenerator {
         createSimpleTestGraph();
 
         generateReport();
-        System.out.println("✅ Generated 9 datasets + tasks.json in /data/ folder");
+        System.out.println("Generated 9 datasets + tasks.json in /data/ folder");
     }
 
     private static void generateSmallDataset(int id, String type, boolean includeCycles, boolean multipleSCCs) throws IOException {
@@ -278,7 +275,7 @@ public class DataGenerator {
         try (Writer writer = new FileWriter("data/tasks.json")) {
             gson.toJson(data, writer);
         }
-        System.out.println("📁 Created: data/tasks.json (test graph with 3 SCCs)");
+        System.out.println("Created: data/tasks.json (test graph with 3 SCCs)");
     }
 
     private static void saveDataset(JsonGraphData data, int id, String size, String type, int nodeCount) throws IOException {
@@ -287,7 +284,7 @@ public class DataGenerator {
         try (Writer writer = new FileWriter(filename)) {
             gson.toJson(data, writer);
         }
-        System.out.println("📁 Generated: " + filename + " - " + nodeCount + " vertices, " +
+        System.out.println("Generated: " + filename + " - " + nodeCount + " vertices, " +
                 data.edges.size() + " edges");
     }
 
@@ -304,14 +301,14 @@ public class DataGenerator {
         report.append("3. dataset_3_small_dense_mixed.json - 2 components with cycles\n\n");
 
         report.append("MEDIUM (10-20 nodes):\n");
-        report.append("4. dataset_4_medium_multiple_sccs.json - 3 separate SCCs ✅\n");
+        report.append("4. dataset_4_medium_multiple_sccs.json - 3 separate SCCs\n");
         report.append("5. dataset_5_medium_sparse_dag.json - Sparse DAG\n");
         report.append("6. dataset_6_medium_dense_cyclic.json - Dense cyclic graph\n\n");
 
         report.append("LARGE (20-50 nodes):\n");
-        report.append("7. dataset_7_large_sparse_mixed.json - 3-5 components ✅\n");
+        report.append("7. dataset_7_large_sparse_mixed.json - 3-5 components\n");
         report.append("8. dataset_8_large_dense_cyclic.json - Large cyclic graph\n");
-        report.append("9. dataset_9_large_multiple_sccs_dense.json - Multiple SCCs dense ✅\n\n");
+        report.append("9. dataset_9_large_multiple_sccs_dense.json - Multiple SCCs dense\n\n");
 
         report.append("Test file:\n");
         report.append("- tasks.json - Simple test with 3 SCCs for Main class\n");
@@ -319,6 +316,6 @@ public class DataGenerator {
         try (Writer writer = new FileWriter("data/dataset_report.txt")) {
             writer.write(report.toString());
         }
-        System.out.println("📄 Generated dataset_report.txt");
+        System.out.println("Generated dataset_report.txt");
     }
 }

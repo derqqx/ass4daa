@@ -39,5 +39,4 @@ public class Graph {
     public int getNodeDuration(String node) {
         return nodeDurations.getOrDefault(node, 0);
     }
-
 }

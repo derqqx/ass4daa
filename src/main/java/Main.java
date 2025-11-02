@@ -15,11 +15,10 @@ public class Main {
         String outputFile = "results/output.json";
 
         try {
-            // Read input graph
             Graph graph = readGraphFromFile(inputFile);
             System.out.println("Loaded graph with " + graph.getNodes().size() + " nodes");
 
-            // 1. Find SCCs
+            // находим скк
             System.out.println("Finding Strongly Connected Components...");
             SCCAlgorithm sccAlgo = new SCCAlgorithm();
             var sccResult = sccAlgo.findSCC(graph);
@@ -29,17 +28,17 @@ public class Main {
                 System.out.println("Component " + i + ": " + sccResult.components.get(i));
             }
 
-            // 2. Build condensation graph
+            // строим график конденсации
             System.out.println("Building condensation graph...");
             CondensationGraph condGraph = new CondensationGraph(sccResult.components, graph);
 
-            // 3. Topological sort on condensation graph
+            // топологическая сортировка на графе конденсации
             System.out.println("Performing topological sort...");
             TopologicalSort topoAlgo = new TopologicalSort();
             var topoResult = topoAlgo.kahnTopologicalSort(condGraph);
-            System.out.println("📋 Topological order: " + topoResult.order);
+            System.out.println("Topological order: " + topoResult.order);
 
-            // 4. Shortest and longest paths
+            // самые короткий и длинные пути
             System.out.println("Finding critical path...");
             DAGShortestPath spAlgo = new DAGShortestPath();
             var criticalPathResult = spAlgo.findCriticalPath(condGraph);
@@ -47,7 +46,7 @@ public class Main {
             System.out.println("Critical path length: " + criticalPathResult.length);
             System.out.println("Critical path: " + criticalPathResult.path);
 
-            // Save results
+            // сохраняем результаты
             saveResults(sccResult, topoResult, criticalPathResult, outputFile);
             System.out.println("Results saved to " + outputFile);
 
